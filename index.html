@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定西市 - 我的绿色家园</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <i class="fas fa-tree"></i>
+                <span>定西绿色家园</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">首页</a></li>
+                <li><a href="#map">探索地图</a></li>
+                <li><a href="#data">生态数据</a></li>
+                <li><a href="#timeline">人文历史</a></li>
+                <li><a href="#game">互动添绿</a></li>
+            </ul>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 主内容区域 -->
+    <main>
+        <!-- 首页横幅 -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>欢迎来到<span class="highlight">定西市</span></h1>
+                <p class="subtitle">黄土高原上的绿色明珠，马铃薯之乡</p>
+                <p>探索陇中地区的自然风光、人文历史和生态成就</p>
+                <button class="cta-button" id="explore-btn">开始探索 <i class="fas fa-arrow-right"></i></button>
+            </div>
+            <div class="hero-image">
+                <div class="image-container" id="hero-img">
+                    <!-- 图片将通过JavaScript加载 -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 交互式地图部分 -->
+        <section id="map" class="section">
+            <h2><i class="fas fa-map-marked-alt"></i> 探索定西市地图</h2>
+            <p class="section-description">点击地图上的标记，了解定西市的重要地点</p>
+
+            <div class="map-container">
+                <!-- 简易定西市地图 -->
+                <div class="city-map">
+                    <!-- 地图背景 -->
+                    <div class="map-background">
+                        <!-- 河流 -->
+                        <div class="river" id="weishui-river">
+                            <div class="river-name">渭河</div>
+                        </div>
+
+                        <!-- 山脉 -->
+                        <div class="mountain" id="huajia-mountain">
+                            <div class="mountain-name">华家岭</div>
+                        </div>
+
+                        <!-- 城市区域 -->
+                        <div class="city-center" id="city-center">
+                            <div class="center-name">安定区</div>
+                        </div>
+
+                        <!-- 农业园区 -->
+                        <div class="agri-park" id="agri-park">
+                            <div class="park-name">马铃薯产业园</div>
+                        </div>
+
+                        <!-- 生态公园 -->
+                        <div class="eco-park" id="eco-park">
+                            <div class="park-name">玉湖公园</div>
+                        </div>
+
+                        <!-- 点击标记点 -->
+                        <div class="marker" id="marker-1" style="top: 40%; left: 30%;" data-location="weishui">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <div class="marker" id="marker-2" style="top: 20%; left: 50%;" data-location="huajia">
+                            <i class="fas fa-mountain"></i>
+                        </div>
+                        <div class="marker" id="marker-3" style="top: 60%; left: 45%;" data-location="anding">
+                            <i class="fas fa-city"></i>
+                        </div>
+                        <div class="marker" id="marker-4" style="top: 70%; left: 60%;" data-location="potato">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <div class="marker" id="marker-5" style="top: 50%; left: 70%;" data-location="yuhu">
+                            <i class="fas fa-park"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 地点信息面板 -->
+                <div class="location-info">
+                    <div class="info-header">
+                        <h3 id="location-title">选择地图标记</h3>
+                        <div class="location-icon" id="location-icon">
+                            <i class="fas fa-map-pin"></i>
+                        </div>
+                    </div>
+                    <div class="info-content">
+                        <div class="location-image-container" id="location-image-container">
+                            <!-- 图片将通过JavaScript加载 -->
+                        </div>
+                        <p id="location-description">点击地图上的任意标记点，查看该地点的详细信息。</p>
+                        <div class="location-stats" id="location-stats">
+                            <!-- 统计数据将由JavaScript动态加载 -->
+                        </div>
+                    </div>
+                    <div class="info-footer">
+                        <div class="coordinates" id="coordinates">坐标: --</div>
+                        <div class="weather" id="weather">天气: --</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 生态数据部分 -->
+        <section id="data" class="section dark-section">
+            <h2><i class="fas fa-chart-line"></i> 定西市生态数据</h2>
+            <p class="section-description">查看定西市的关键生态环境指标</p>
+
+            <div class="data-cards">
+                <div class="data-card">
+                    <div class="card-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>水土保持率</h3>
+                    <div class="progress-container">
+                        <div class="progress-bar" id="water-progress">
+                            <span class="progress-text">68.5%</span>
+                        </div>
+                    </div>
+                    <p class="card-desc">通过梯田工程和植树造林显著提升</p>
+                </div>
+
+                <div class="data-card">
+                    <div class="card-icon">
+                        <i class="fas fa-cloud-sun"></i>
+                    </div>
+                    <h3>空气质量优良率</h3>
+                    <div class="progress-container">
+                        <div class="progress-bar" id="air-progress">
+                            <span class="progress-text">91.3%</span>
+                        </div>
+                    </div>
+                    <p class="card-desc">2024年优良天数达到333天</p>
+                </div>
+
+                <div class="data-card">
+                    <div class="card-icon">
+                        <i class="fas fa-tractor"></i>
+                    </div>
+                    <h3>马铃薯种植面积</h3>
+                    <div class="progress-container">
+                        <div class="progress-bar" id="potato-progress">
+                            <span class="progress-text">300万亩</span>
+                        </div>
+                    </div>
+                    <p class="card-desc">中国重要的马铃薯生产和加工基地</p>
+                </div>
+
+                <div class="data-card">
+                    <div class="card-icon">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <h3>年日照时数</h3>
+                    <div class="progress-container">
+                        <div class="progress-bar" id="sunshine-progress">
+                            <span class="progress-text">2500小时</span>
+                        </div>
+                    </div>
+                    <p class="card-desc">充足的光照资源利于农业发展</p>
+                </div>
+            </div>
+
+            <div class="data-chart-container">
+                <h3>定西市近五年森林覆盖率变化</h3>
+                <div class="chart">
+                    <canvas id="greening-chart"></canvas>
+                </div>
+                <p class="chart-note">数据来源：定西市林业和草原局 (2020-2024)</p>
+            </div>
+        </section>
+
+        <!-- 人文历史时间轴 -->
+        <section id="timeline" class="section">
+            <h2><i class="fas fa-history"></i> 定西市人文历史</h2>
+            <p class="section-description">探索定西市从古至今的发展历程</p>
+
+            <div class="timeline-container">
+                <div class="timeline">
+                    <div class="timeline-event left">
+                        <div class="event-content">
+                            <h3>公元前2000年</h3>
+                            <p>马家窑文化在定西地区繁荣，彩陶制作技术发达</p>
+                        </div>
+                        <div class="event-marker"></div>
+                    </div>
+
+                    <div class="timeline-event right">
+                        <div class="event-content">
+                            <h3>1142年</h3>
+                            <p>宋金时期设立定西州，定西之名始于此</p>
+                        </div>
+                        <div class="event-marker"></div>
+                    </div>
+
+                    <div class="timeline-event left">
+                        <div class="event-content">
+                            <h3>1913年</h3>
+                            <p>民国时期改定西州为定西县</p>
+                        </div>
+                        <div class="event-marker"></div>
+                    </div>
+
+                    <div class="timeline-event right">
+                        <div class="event-content">
+                            <h3>2003年</h3>
+                            <p>定西撤地设市，成立地级定西市</p>
+                        </div>
+                        <div class="event-marker"></div>
+                    </div>
+
+                    <div class="timeline-event left">
+                        <div class="event-content">
+                            <h3>2008年</h3>
+                            <p>定西市被授予"中国马铃薯之乡"称号</p>
+                        </div>
+                        <div class="event-marker"></div>
+                    </div>
+
+                    <div class="timeline-event right">
+                        <div class="event-content">
+                            <h3>2020年</h3>
+                            <p>定西市整体脱贫，历史性解决绝对贫困问题</p>
+                        </div>
+                        <div class="event-marker"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 互动植树游戏 -->
+        <section id="game" class="section dark-section">
+            <h2><i class="fas fa-seedling"></i> 我为定西添抹绿</h2>
+            <p class="section-description">参与虚拟植树，为定西市的黄土高原绿化贡献力量</p>
+
+            <div class="game-container">
+                <div class="game-info">
+                    <h3>定西市虚拟植树行动</h3>
+                    <p>点击"植树"按钮，为定西市增加一棵树。我们的目标是：<strong>50,000棵</strong>虚拟树，相当于在黄土高原上种植一片防护林。</p>
+
+                    <div class="game-stats">
+                        <div class="stat">
+                            <div class="stat-value" id="tree-count">0</div>
+                            <div class="stat-label">已植树量</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value" id="tree-goal">50000</div>
+                            <div class="stat-label">目标植树量</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value" id="progress-percent">0%</div>
+                            <div class="stat-label">完成进度</div>
+                        </div>
+                    </div>
+
+                    <div class="progress-container game-progress">
+                        <div class="progress-bar" id="tree-progress"></div>
+                    </div>
+
+                    <div class="game-controls">
+                        <button class="game-btn plant-btn" id="plant-tree-btn">
+                            <i class="fas fa-seedling"></i> 植树
+                        </button>
+                        <button class="game-btn reset-btn" id="reset-btn">
+                            <i class="fas fa-redo"></i> 重置
+                        </button>
+                    </div>
+
+                    <p class="game-note">每棵虚拟树代表对定西市黄土高原绿化事业的一份支持！</p>
+                </div>
+
+                <div class="game-visualization">
+                    <div class="forest-area" id="forest-area">
+                        <!-- 树将通过JavaScript动态添加 -->
+                        <div class="tree-placeholder">
+                            <i class="fas fa-tree"></i>
+                            <p>这里将显示您种下的树</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>定西市绿色家园</h3>
+                <p>一个展示定西市生态与人文的互动平台</p>
+                <p>项目作者：龚治源 </p>
+            </div>
+
+            <div class="footer-section">
+                <h3>项目说明</h3>
+                <p>此项目为青少年科技创新大赛参赛作品，旨在通过网页技术展示定西市的生态成就与人文魅力。</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>联系信息</h3>
+                <p>学校：定西市安定区公园路中学</p>
+                <p>年级：初中二年级 </p>
+                <p>指导老师：高耀东</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 定西市"我的绿色家园"项目 | 青少年科技创新大赛参赛作品</p>
+        </div>
+    </footer>
+
+    <!-- 引入Chart.js用于绘制图表 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
